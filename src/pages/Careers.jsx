@@ -1,4 +1,12 @@
-import { createStyles, Text, Title, Button, Image, Space } from "@mantine/core";
+import {
+  createStyles,
+  Text,
+  Title,
+  Button,
+  Image,
+  Card,
+  Stack
+} from "@mantine/core";
 import work from "../assets/work.jpg";
 
 const useStyles = createStyles((theme) => ({
@@ -68,45 +76,45 @@ const useStyles = createStyles((theme) => ({
 export default function Careers() {
   const { classes } = useStyles();
   return (
-    <div className={classes.wrapper}>
-      <div className={classes.body}>
+    <Card shadow="xl" p="xl" withBorder>
+      <Stack align="center">
         <Title className={classes.title}>
           <Text color={"#862d47"}>Careers</Text>
         </Title>
+        <Image radius="md" alt="Careers" src={work} className={classes.image} />
 
-        <Text size="sm" color="dimmed">
+        <Text align="center" size="sm" color="dimmed">
           Luxury Brand Holdings is always looking for intelligent and
           self-motivated people for all levels of our company
         </Text>
-        <Space h="sm" />
-        <Text size="sm" color="dimmed">
+
+        <Text align="center" size="sm" color="dimmed">
           We pride ourselves on providing an exceptional shopping experience and
           building profitable long-term customer relationships.
         </Text>
-        <Space h="sm" />
-        <Text size="sm" color="dimmed">
+
+        <Text align="center" size="sm" color="dimmed">
           Our employees are our number one asset. We offer competitive benefits
           and opportunities to help you grow with us.{" "}
         </Text>
-        <Space h="sm" />
-        <Text size="sm" color="dimmed">
+
+        <Text align="center" size="sm" color="dimmed">
           Whether you are an experienced professional or a first time job
           seeker, we have a wide range of career opportunities.
         </Text>
-        <Space h="xl" />
+
         <Button
           component="a"
           href="https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=b4fadde9-8ed0-42cf-a8af-215ce4e70c37&ccId=19000101_000001&type=MP&lang=en_US"
           loaderPosition="center"
-          variant="light"
-          color="gray"
+          variant="gradient"
+          gradient={{ from: "dark", to: "red" }}
+          color="red"
           radius="md"
         >
-          Click here to explore our available career opportunities
+          Explore Career Opportunities
         </Button>
-      </div>
-
-      <Image radius="md" alt="Careers" src={work} className={classes.image} />
-    </div>
+      </Stack>
+    </Card>
   );
 }

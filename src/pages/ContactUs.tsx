@@ -2,9 +2,12 @@ import {
   createStyles,
   ThemeIcon,
   Text,
-  SimpleGrid,
+  Center,
   Box,
-  Stack
+  Stack,
+  Card,
+  Title,
+  Space
 } from "@mantine/core";
 import { Sun, Phone, Mail, Location, Home } from "tabler-icons-react";
 
@@ -18,7 +21,9 @@ const useStyles = createStyles((theme, { variant }: ContactIconStyles) => ({
   wrapper: {
     display: "flex",
     alignItems: "center",
-    color: theme.white
+    color: theme.white,
+    marginLeft: 50,
+    marginRight: 50
   },
 
   icon: {
@@ -28,6 +33,13 @@ const useStyles = createStyles((theme, { variant }: ContactIconStyles) => ({
         ? `linear-gradient(135deg, ${theme.colors["gray"][9]} 0%, ${theme.colors["pink"][8]} 100%)`
         : "none",
     backgroundColor: "transparent"
+  },
+
+  cardTitle: {
+    color: theme.colorScheme === "dark" ? theme.white : theme.black,
+    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    lineHeight: 1,
+    marginBottom: theme.spacing.md
   },
 
   title: {
@@ -122,26 +134,17 @@ export function ContactIconsList({
 
 export default function ContactUs() {
   return (
-    <SimpleGrid cols={2} breakpoints={[{ maxWidth: 755, cols: 1 }]}>
-      <Box
-        sx={(theme) => ({
-          padding: theme.spacing.xl,
-          borderRadius: theme.radius.md,
-          backgroundColor: theme.white
-        })}
-      >
+    <Card shadow="xl" p="xl" withBorder>
+      <Center>
+        <Title>
+          <Text color={"#862d47"}>Contact Us</Text>
+        </Title>
+      </Center>
+      <Space h="md" />
+      <Center>
         <ContactIconsList />
-      </Box>
-
-      <Box
-        sx={(theme) => ({
-          padding: theme.spacing.xl,
-          borderRadius: theme.radius.md,
-          backgroundImage: `linear-gradient(135deg, ${theme.colors["pink"][9]} 0%, ${theme.colors["dark"][9]} 100%)`
-        })}
-      >
-        <ContactIconsList variant="white" />
-      </Box>
-    </SimpleGrid>
+      </Center>
+      <Space h="md" />
+    </Card>
   );
 }
