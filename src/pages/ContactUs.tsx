@@ -22,8 +22,8 @@ const useStyles = createStyles((theme, { variant }: ContactIconStyles) => ({
     display: "flex",
     alignItems: "center",
     color: theme.white,
-    marginLeft: 50,
-    marginRight: 50
+    marginLeft: theme.spacing.xl,
+    marginRight: theme.spacing.xl
   },
 
   icon: {
@@ -74,8 +74,8 @@ function ContactIcon({
   return (
     <div className={cx(classes.wrapper, className)} {...others}>
       {variant === "gradient" ? (
-        <ThemeIcon size={40} radius="md" className={classes.icon}>
-          <Icon size={24} />
+        <ThemeIcon size={33} radius="md" className={classes.icon}>
+          <Icon size={22} />
         </ThemeIcon>
       ) : (
         <Box mr="md">
@@ -87,7 +87,9 @@ function ContactIcon({
         <Text size="xs" className={classes.title}>
           {title}
         </Text>
-        <Text className={classes.description}>{description}</Text>
+        <Text size="sm" className={classes.description}>
+          {description}
+        </Text>
       </div>
     </div>
   );

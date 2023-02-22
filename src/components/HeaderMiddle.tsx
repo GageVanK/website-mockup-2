@@ -11,7 +11,8 @@ import {
   Drawer,
   ScrollArea,
   Divider,
-  Text
+  Text,
+  Button
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import {
@@ -21,7 +22,8 @@ import {
   BrandFacebook,
   BrandYoutube
 } from "tabler-icons-react";
-import logo from "../assets/logo.png";
+
+import logo from "../assets/lbh-logo.png";
 
 const useStyles = createStyles((theme) => ({
   inner: {
@@ -143,13 +145,15 @@ export default function HeaderMiddle() {
           </Group>
 
           <Group position="center">
-            <Image
-              src={logo}
-              alt="logo"
-              width={233}
-              height={99}
-              fit="contain"
-            />
+            <Button component={Link} to="/" variant="white">
+              <Image
+                src={logo}
+                alt="logo"
+                width={233}
+                height={99}
+                fit="contain"
+              />
+            </Button>
           </Group>
           <Group spacing={5} className={classes.social} position="right" noWrap>
             <ActionIcon size="lg">
@@ -188,17 +192,17 @@ export default function HeaderMiddle() {
             color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
           />
 
-          <Link to="/" className={classes.link}>
+          <Link to="/" className={classes.link} onClick={toggle}>
             <Text sx={{ marginLeft: 10 }} align="center">
               Home
             </Text>
           </Link>
-          <Link to="/careers" className={classes.link}>
+          <Link to="/careers" className={classes.link} onClick={toggle}>
             <Text sx={{ marginLeft: 10 }} align="center">
               Careers
             </Text>
           </Link>
-          <Link to="/contactUs" className={classes.link}>
+          <Link to="/contactUs" className={classes.link} onClick={toggle}>
             <Text sx={{ marginLeft: 10 }} align="center">
               Contact Us
             </Text>
